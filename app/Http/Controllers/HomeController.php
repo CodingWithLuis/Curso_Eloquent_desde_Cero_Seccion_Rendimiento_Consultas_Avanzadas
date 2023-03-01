@@ -27,15 +27,16 @@ class HomeController extends Controller
     public function index(): View
     {
         //CONSULTA 1: USANDO ELOQUENT
-        $projects = Project::with('user')->get();
+        // $projects = Project::with('user', 'task')->get();
 
         //CONSULTA 2: USANDO QUERY BUILDER
         // $projects = DB::table('projects')
         //     ->join('users', 'projects.user_id', '=', 'users.id')
+        //     ->join('tasks', 'projects.task_id', '=', 'tasks.id')
         //     ->get();
 
         //CONSULTA 3: USANDO SQL
-        // $projects = DB::select('SELECT * FROM projects INNER JOIN users ON projects.user_id = users.id');
+        $projects = DB::select('select * from `projects` inner join `users` on `projects`.`user_id` = `users`.`id` inner join `tasks` on `projects`.`task_id` = `tasks`.`id`');
 
         return view('home', compact('projects'));
     }
