@@ -8,9 +8,6 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @foreach ($projects as $project)
-                    {{ $project->name }} <br>
-                    @endforeach
                 </div>
             </div>
         </div>

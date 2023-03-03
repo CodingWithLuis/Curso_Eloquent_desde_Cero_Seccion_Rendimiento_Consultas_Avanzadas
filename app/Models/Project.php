@@ -13,7 +13,7 @@ class Project extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
-    protected $fillable = ['name', 'user_id', 'task_id'];
+    protected $fillable = ['name', 'user_id', 'task_id', 'is_active'];
 
     public function user(): BelongsTo
     {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -36,7 +37,9 @@ class HomeController extends Controller
         //     ->get();
 
         //CONSULTA 3: USANDO SQL
-        $projects = DB::select('select * from `projects` inner join `users` on `projects`.`user_id` = `users`.`id` inner join `tasks` on `projects`.`task_id` = `tasks`.`id`');
+        // $projects = DB::select('select * from `projects` inner join `users` on `projects`.`user_id` = `users`.`id` inner join `tasks` on `projects`.`task_id` = `tasks`.`id`');
+
+        $projects = Project::all();
 
         return view('home', compact('projects'));
     }
