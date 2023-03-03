@@ -39,8 +39,16 @@ class HomeController extends Controller
         //CONSULTA 3: USANDO SQL
         // $projects = DB::select('select * from `projects` inner join `users` on `projects`.`user_id` = `users`.`id` inner join `tasks` on `projects`.`task_id` = `tasks`.`id`');
 
-        $projects = Project::all();
+        // $projects = Project::all();
 
-        return view('home', compact('projects'));
+        Project::where('is_active', 0)->chunkById(500, function (Collection $projects) {
+
+            foreach ($projects as $project) {
+                $project->is_active = 1;
+                $project->save();
+            }
+        });
+
+        return view('home');
     }
 }
