@@ -18,8 +18,8 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => fake()->words(3, true),
-            'user_id' => rand(1, 500),
-            'task_id' => rand(1, 500),
+            'user_id' => rand(1, 5),
+            'task_id' => rand(1, 5),
             'is_active' => rand(0, 1),
         ];
     }
