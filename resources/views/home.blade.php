@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     @foreach ($projects as $project)
-                    Proyecto: {{ $project->name }} Usuario: {{ $project->user->name }} <br>
+                    <strong>Proyecto:</strong> {{ $project->name }} <strong>Usuario: </strong> {{ $project->username ?? 'N/A' }} <br>
                     @endforeach
                 </div>
             </div>

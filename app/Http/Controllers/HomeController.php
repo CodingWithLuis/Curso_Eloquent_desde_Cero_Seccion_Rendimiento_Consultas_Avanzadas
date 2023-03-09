@@ -48,7 +48,41 @@ class HomeController extends Controller
         //     }
         // });
 
-        $projects = Project::with('user')->get();
+        // $projects = Project::with('user')->get();
+
+
+        //TRABAJANDO CON INNER JOIN
+        // $projects = Project::query()
+        //     ->join('users', 'projects.user_id', '=', 'users.id')
+        //     ->select('projects.*', 'users.id', 'users.name AS username')
+        //     ->get();
+
+        //TRABAJANDO CON LEFT JOIN
+        // $projects = Project::query()
+        //     ->leftJoin('users', 'projects.user_id', '=', 'users.id')
+        //     ->select('projects.*', 'users.id', 'users.name AS username')
+        //     ->get();
+
+        //TRABAJANDO CON RIGHT JOIN
+        // $projects = Project::query()
+        //     ->rightJoin('users', 'projects.user_id', '=', 'users.id')
+        //     ->select('projects.*', 'users.id', 'users.name AS username')
+        //     ->get();
+
+        // TRABAJANDO CON CROSS JOIN
+        // $projects = Project::query()
+        //     ->crossJoin('users')
+        //     ->select('projects.*', 'users.name AS username')
+        //     ->get();
+
+        //TRABAJANDO JOIN AVANZADO
+        $projects = Project::query()
+            ->join('users', function ($join) {
+                $join->on('projects.user_id', '=', 'users.id')
+                    ->where('users.name', 'admin');
+            })
+            ->select('projects.*', 'users.name AS username')
+            ->get();
 
         return view('home', compact('projects'));
     }
