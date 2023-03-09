@@ -8,9 +8,6 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @foreach ($projects as $project)
-                    <strong>Proyecto:</strong> {{ $project->name }} <strong>Usuario: </strong> {{ $project->username ?? 'N/A' }} <br>
-                    @endforeach
                 </div>
             </div>
         </div>

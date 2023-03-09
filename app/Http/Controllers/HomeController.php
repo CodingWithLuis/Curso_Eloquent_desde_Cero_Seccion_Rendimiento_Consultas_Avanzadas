@@ -76,14 +76,19 @@ class HomeController extends Controller
         //     ->get();
 
         //TRABAJANDO JOIN AVANZADO
-        $projects = Project::query()
-            ->join('users', function ($join) {
-                $join->on('projects.user_id', '=', 'users.id')
-                    ->where('users.name', 'admin');
-            })
-            ->select('projects.*', 'users.name AS username')
-            ->get();
+        // $projects = Project::query()
+        //     ->join('users', function ($join) {
+        //         $join->on('projects.user_id', '=', 'users.id')
+        //             ->where('users.name', 'admin');
+        //     })
+        //     ->select('projects.*', 'users.name AS username')
+        //     ->get();
 
-        return view('home', compact('projects'));
+        // EJEMPLO CON CURSOR
+
+        foreach (Project::cursor() as $project) {
+        }
+
+        return view('home');
     }
 }
