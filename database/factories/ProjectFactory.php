@@ -19,7 +19,8 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => fake()->words(3, true),
-            'user_id' => fake()->optional()->randomElement(User::pluck('id')),
+            // 'user_id' => fake()->optional()->randomElement(User::pluck('id')),
+            'user_id' => rand(1, 5),
             'task_id' => rand(1, 5),
             'is_active' => rand(0, 1),
         ];

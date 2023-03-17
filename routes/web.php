@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AggregatesController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubqueriesController;
 use App\Http\Controllers\UserController;
@@ -29,3 +30,4 @@ Route::resource('projects', ProjectController::class);
 Route::resource('users', UserController::class)->only('index');
 
 Route::get('subqueries', [SubqueriesController::class, 'index'])->name('subqueries.index');
+Route::get('aggregates', [AggregatesController::class, 'index'])->name('aggregates.index');
