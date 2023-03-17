@@ -18,7 +18,8 @@ class HospitalFactory extends Factory
     {
         return [
             'name' => fake()->words(2, true),
-            'city_id' => rand(1, 25)
+            'city_id' => rand(1, 25),
+            'is_active' => rand(0, 1)
         ];
     }
 }

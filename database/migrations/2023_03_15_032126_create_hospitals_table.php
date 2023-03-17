@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(City::class)->nullable()->constrained();
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

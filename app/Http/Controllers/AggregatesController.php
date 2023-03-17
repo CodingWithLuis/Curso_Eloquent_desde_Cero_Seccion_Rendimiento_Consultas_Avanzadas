@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Country;
 use Illuminate\View\View;
 
 class AggregatesController extends Controller
 {
-
     public function index(): View
     {
         return view('aggregates.index');
