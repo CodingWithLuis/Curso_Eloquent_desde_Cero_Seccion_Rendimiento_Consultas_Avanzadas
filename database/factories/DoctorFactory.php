@@ -18,7 +18,8 @@ class DoctorFactory extends Factory
     {
         return [
             'name' => fake()->words(3, true),
-            'hospital_id' => rand(1, 50)
+            'hospital_id' => rand(1, 50),
+            'salary' => rand(1000, 5000)
         ];
     }
 }

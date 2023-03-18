@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(Hospital::class)->nullable()->constrained();
+            $table->integer('salary');
             $table->timestamps();
         });
     }

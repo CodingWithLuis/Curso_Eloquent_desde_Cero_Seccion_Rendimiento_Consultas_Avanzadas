@@ -10,7 +10,7 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'hospital_id'];
+    protected $fillable = ['name', 'hospital_id', 'salary'];
 
     public function hospital(): BelongsTo
     {

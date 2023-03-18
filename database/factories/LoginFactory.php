@@ -18,7 +18,8 @@ class LoginFactory extends Factory
     {
         return [
             'ip_address' => fake()->ipv4(),
-            'user_id' => rand(1, 5),
+            'user_id' => rand(1, 6),
+            'created_at' => fake()->dateTimeBetween('-1 year', now()),
         ];
     }
 }
